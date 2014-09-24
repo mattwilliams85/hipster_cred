@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lastfmd3</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+<h1><%= link_to "HOME", users_path%></h1>
+
+<div class="errorz">
+   <%= flash[:alert] %>
+</div>
+
+<%= yield %>
+</div>
+</body>
+</html>

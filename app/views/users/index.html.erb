@@ -1,0 +1,13 @@
+<h1> Last.fm Data Fetcher </h1>
+
+
+<div class="form-group col-md-3">
+<%= form_for @user do |f| %>
+
+
+<%= f.text_field :username, :class => "form-control", :placeholder => "username" %>
+<br>
+<%= f.submit "Fetch Data", :class => "btn btn-success" %>
+
+<% end %>
+</div>

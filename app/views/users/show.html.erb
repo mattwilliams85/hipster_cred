@@ -1,0 +1,10 @@
+<h1> <%= @user.username %>'s Show Page </h1>
+
+<ol>
+  <% @artists.each do |artist| %>
+  <li>  <%= artist["artist"]%> </li>
+        <span> &#8226; Popularity <%= artist["popularity"].to_s %>k </span>
+        <br>
+        <span> &#8226; Freshness <%= artist["oldness"].to_s %>y </span>
+  <% end %>
+</ul>
