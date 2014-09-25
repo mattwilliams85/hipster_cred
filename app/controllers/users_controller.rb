@@ -2,14 +2,14 @@ class UsersController < ApplicationController
 
 require 'wikipedia'
 
-
   def index
+
     @user = User.new
   end
 
   def create
-    @topartists = LastFM::User.get_top_artists(:user => params[:user][:username])
-    if @topartists
+    @topalbums = LastFM::User.get_top_albums(:user => params[:user][:username])
+    if @topalbums
     @user = User.new(:username => params[:user][:username])
       if @user.save
         redirect_to user_path(@user)
@@ -22,7 +22,9 @@ require 'wikipedia'
 
   def show
     @user = User.find(params[:id])
-    @artists = @user.find_top_ten
+    @albums = @user.find_top_ten
+    @score = @user.find_score(@albums)
+    @message = @user.find_message(@score)
   end
 
 end

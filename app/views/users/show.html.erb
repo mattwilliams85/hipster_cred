@@ -1,10 +1,26 @@
-<h1> <%= @user.username %>'s Show Page </h1>
+<div class="top-box">
+  <span class="title"> Hipster Cred </span>
+  <br>
+  <span class="score"> <%= @score %></span>
+  <p> out of 10 </p>
 
-<ol>
-  <% @artists.each do |artist| %>
-  <li>  <%= artist["artist"]%> </li>
-        <span> &#8226; Popularity <%= artist["popularity"].to_s %>k </span>
-        <br>
-        <span> &#8226; Freshness <%= artist["oldness"].to_s %>y </span>
+  <h2 class="congrats"> Congratulations "<%= @user.username %>", you are <%= @message %>.</h2>
+  <h3><%= link_to "TRY AGAIN", users_path%></h3>
+</div>
+
+<br>
+
+<ul>
+  <% @albums.each_with_index do |album, i | %>
+  <li><h4><%= i + 1 %>. <%= album["name"]%> by <%= album["artist"]%> </h4></li>
+  <img src='<%=album['img_url']%>'>
+  <br>
+  <span> <strong>&#8226; Obscurity </strong><%= album["unpopularity"].to_s %></span>
+  <br>
+  <span> <strong>&#8226; Freshness </strong><%= album["freshness"].to_s %> </span>
+  <br>
+  <span> <strong>&#8226; Pitchfork Rating </strong><%= album["rating"].to_s %></span>
+  <br>
+  <br>
   <% end %>
 </ul>

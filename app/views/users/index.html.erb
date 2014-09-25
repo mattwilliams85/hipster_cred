@@ -1,13 +1,12 @@
-<h1> Last.fm Data Fetcher </h1>
-
-
-<div class="form-group col-md-3">
-<%= form_for @user do |f| %>
-
-
-<%= f.text_field :username, :class => "form-control", :placeholder => "username" %>
+<h1> HIPSTER CRED CALCULATOR </h1>
 <br>
-<%= f.submit "Fetch Data", :class => "btn btn-success" %>
-
-<% end %>
+<div class="container" style="margin:auto;width:80%">
+  <%= form_for @user do |f| %>
+  <div style="margin:auto;width:25%">
+    <%= f.text_field :username, :class => "form-control", :placeholder => "LastFM username" %>
+    <br>
+    <%= f.submit "Let me have it.", :class => "btn btn-primary" %>
+  </div>
+  <% end %>
 </div>
+

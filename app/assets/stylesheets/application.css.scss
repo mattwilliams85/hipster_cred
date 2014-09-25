@@ -16,3 +16,42 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@font-face {
+    font-family: 'hipster';
+    src: asset-url('Action_Man-webfont.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.score {
+  color:red;
+  font-size:5em;
+  font-bold:800;
+}
+
+.title {
+  font-size:2em;
+  border-bottom:2px solid black;
+}
+
+.congrats {
+  margin-left:50px;
+}
+
+.top-box {
+  margin-left:25px;
+}
+
+body {
+  margin-top:50px;
+  text-align:center
+}
+
+li {
+  list-style-type:none;
+}
+
+p {
+  line-height: 80%;
+}
+
