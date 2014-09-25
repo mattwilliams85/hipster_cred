@@ -96,8 +96,10 @@ class User < ActiveRecord::Base
     case score.to_f
       when 0..2
         return "a mainstream whore"
-      when 2.01..4
-        return  "a top 40 junkie"
+      when 2.01..3
+        return  "a ryan seacrestian"
+      when 3.01..4
+          return "a top 40 junkie"
       when 4.01..5
         return "officially sheeple"
       when 5.01..6

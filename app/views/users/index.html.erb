@@ -1,12 +1,14 @@
-<h1> HIPSTER CRED CALCULATOR </h1>
-<br>
-<div class="container" style="margin:auto;width:80%">
-  <%= form_for @user do |f| %>
-  <div style="margin:auto;width:25%">
-    <%= f.text_field :username, :class => "form-control", :placeholder => "LastFM username" %>
-    <br>
-    <%= f.submit "Let me have it.", :class => "btn btn-primary" %>
+<div class="main-box">
+  <h1 class="main-title"> THE HIPSTER CRED CALCULATOR </h1>
+  <br>
+  <div class="container" style="margin:auto;width:80%">
+    <%= form_for @user do |f| %>
+    <div style="margin:auto;width:30%">
+      <%= f.text_field :username, :class => "form-control", :placeholder => "LastFM username" %>
+      <br>
+      <%= f.submit "Let me have it.", :class => "btn btn-primary" %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
 

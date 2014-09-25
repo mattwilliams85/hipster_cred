@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-require 'wikipedia'
-
   def index
 
     @user = User.new
