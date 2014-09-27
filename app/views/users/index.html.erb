@@ -1,14 +1,35 @@
-<div class="main-box">
-  <h1 class="main-title"> THE HIPSTER CRED CALCULATOR </h1>
-  <br>
-  <div class="container" style="margin:auto;width:80%">
-    <%= form_for @user do |f| %>
-    <div style="margin:auto;width:30%">
-      <%= f.text_field :username, :class => "form-control", :placeholder => "LastFM username" %>
-      <br>
-      <%= f.submit "Let me have it.", :class => "btn btn-primary" %>
+<div class="errorz">
+   <%= flash[:alert] %>
+</div>
+
+<div class="container">
+
+  <div class="main-box">
+    <h2 class="secondary-title"> THE LAST.FM </h2>
+    <h1 class="main-title"> HIPSTER CREDULATOR </h1>
+    <%= image_tag("hipster_logo.png", :alt => "rss feed", :class => "image") %>
+
+    <div class="container main-form" style="margin:auto;width:80%">
+      <%= form_for @user do |f| %>
+      <div style="margin:auto;width:30%">
+        <%= f.text_field :username, :class => "form-control", :placeholder => "LastFM username" %>
+        <br>
+        <%= f.submit "Let me have it", :class => "btn btn-primary" %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
 
+
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    $(".image").addClass("rotate");
+    $(".main-form").empty();
+    $(".errorz").hide();
+    $(".main-form").append("<h4>CREDULATING...</h4>")
+
+  });
+});
+</script>

@@ -1,4 +1,7 @@
 To Do List
 
-*Hipster Cred Algorithm
-*D3 Visualization for cred stats
+*Itunes option?
+*Faster Load times
+*Padding on bottom
+*Stylize stat bars more
+

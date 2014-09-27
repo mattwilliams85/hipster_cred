@@ -85,15 +85,22 @@ class User < ActiveRecord::Base
   end
 
   def find_score(albums)
-    score = 0
+    total = 0
+    obscurity = 0
+    freshness = 0
+    rating = 0
+    count = albums.length
     albums.each do |album|
-      score += (album["unpopularity"] + album["freshness"] + album["rating"])/30
+      total += (album["unpopularity"] + album["freshness"] + album["rating"])/3
+      obscurity += album["unpopularity"]
+      freshness += album["freshness"]
+      rating += album["rating"]
     end
-    score.round(1)
+    {"total" => (total/count).round(1), "obscurity" => (obscurity/count).round(1), "freshness" => (freshness/count).round(1), "rating" => (rating/count).round(1) }
   end
 
   def find_message(score)
-    case score.to_f
+    case score["total"].to_f
       when 0..2
         return "a mainstream whore"
       when 2.01..3

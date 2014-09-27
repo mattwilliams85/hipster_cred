@@ -1,28 +1,76 @@
-<div class="show-box">
-<div class="top-box">
-  <span class="title"> Hipster Cred </span>
-  <br>
-  <span class="score"> <%= @score %></span>
-  <p> out of 10 </p>
+<div class="container">
+  <div class="show-box">
+    <div class="top-box">
+      <span class="title"> Hipster Cred Rating</span>
+      <br>
+      <span class="score"> <%= @score["total"] %></span>
+      <p> out of 10 </p>
+      <div class="row">
+        <div class="wrap">
+          <span class="float-left"> Obscurity </span>
+          <div id="obscurity"><%= @score["obscurity"] %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="wrap">
+          <span class="float-left"> Freshness </span>
+          <div id="freshness"><%= @score["freshness"] %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="wrap">
+          <span class="float-left"> Rating </span>
+          <div id="rating"><%= @score["rating"] %></div>
+        </div>
+      </div>
+      <h2 class="congrats"> Congratulations</h2>
+      <h2 class="congrats"><strong>"<%= @user.username %>"</strong></h2>
+      <h2 class="congrats">you are <%= @message %>.</h2>
+      <h3><%= link_to "TRY AGAIN", users_path%></h3>
+    </div>
 
-  <h2 class="congrats"> Congratulations "<%= @user.username %>", you are <%= @message %>.</h2>
-  <h3><%= link_to "TRY AGAIN", users_path%></h3>
+    <br>
+
+    <div class="results-box">
+      <ul>
+        <% @albums.each_with_index do |album, i | %>
+        <li><h4><%= i + 1 %>. <%= album["name"]%> by <%= album["artist"]%> </h4></li>
+        <img src='<%=album['img_url']%>'>
+        <br>
+        <span> <strong>&#8226; Obscurity </strong><%= album["unpopularity"].to_s %></span>
+        <br>
+        <span> <strong>&#8226; Freshness </strong><%= album["freshness"].to_s %> </span>
+        <br>
+        <span> <strong>&#8226; Pitchfork Rating </strong><%= album["rating"].to_s %></span>
+        <br>
+        <br>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<br>
+<script type="text/javascript">
+$(document).ready(function(){
 
-<ul>
-  <% @albums.each_with_index do |album, i | %>
-  <li><h4><%= i + 1 %>. <%= album["name"]%> by <%= album["artist"]%> </h4></li>
-  <img src='<%=album['img_url']%>'>
-  <br>
-  <span> <strong>&#8226; Obscurity </strong><%= album["unpopularity"].to_s %></span>
-  <br>
-  <span> <strong>&#8226; Freshness </strong><%= album["freshness"].to_s %> </span>
-  <br>
-  <span> <strong>&#8226; Pitchfork Rating </strong><%= album["rating"].to_s %></span>
-  <br>
-  <br>
-  <% end %>
-</ul>
-</div>
+  $(window).load(function(){
+    $("#obscurity").animate({
+      width: "+=<%= @score["obscurity"]*20 %>",
+        }, 1000, function() {
+      });
+    $("#freshness").animate({
+      width: "+=<%= @score["freshness"]*20 %>",
+        }, 1000, function() {
+      });
+    $("#rating").animate({
+      width: "+=<%= @score["rating"]*20 %>",
+        }, 1000, function() {
+      });
+  });
+});
+</script>
+
+<%= javascript_tag do %>
+
+
+<% end %>

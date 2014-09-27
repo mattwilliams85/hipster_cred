@@ -32,6 +32,14 @@
   font-size:4em;
 }
 
+.secondary-title {
+  font-family: 'hipster';
+  font-size:2.75em;
+  width:50%;
+  border-bottom:1.5px solid black;
+  margin:auto;
+}
+
 .title {
   font-size:2.5em;
   font-weight:bold;
@@ -39,32 +47,64 @@
   border-bottom:2px solid black;
 }
 
-.congrats {
-  margin-left:50px;
-}
-
-.top-box {
-  margin-left:25px;
+.results-box ul {
+  padding:1px !important;
 }
 
 .show-box {
-  background-color:rgb(180,180,180);
+  border:5px double gray;
   height:100%;
   padding:30px 0 0 0;
 }
 
 .main-box {
-  padding-top:200px;
-  background-color:rgba(100,100,100,0.9);
+  padding-top:50px;
   border-radius:50%;
   height:700px !important;
   width:700px !important;
 }
 
+.wrap {
+ margin:auto;
+ width:400px;
+ height:20px;
+}
+
+#obscurity {
+  float:left;
+  height:20px;
+  width:1px;
+  background-color:forestgreen;
+  color:white;
+  margin-left:9.2px;
+}
+
+#freshness {
+  float:left;
+  height:20px;
+  width:1px;
+  background-color:green;
+  color:white;
+  margin-left:5px;
+}
+
+#rating {
+  float:left;
+  height:20px;
+  width:1px;
+  background-color:darkgreen;
+  color:white;
+  margin-left:30.3px;
+}
+
+.float-left {
+  float:left;
+}
+
 body {
-  margin-top:50px;
+  margin-top:30px;
   text-align:center;
-  background-image: url('http://fearlessrockprojects.org/wp-content/uploads/2013/03/background-1600-hipster-2.jpg')
+  /*background-image: url('http://fearlessrockprojects.org/wp-content/uploads/2013/03/background-1600-hipster-2.jpg')*/
 }
 
 html,body {
@@ -79,3 +119,21 @@ p {
   line-height: 80%;
 }
 
+.main-form {
+  padding-top:30px;
+}
+
+.errorz {
+  background-color:rgb(200,0,0);
+  color:white;
+}
+
+.rotate {
+  padding:10px 0 35px 0;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
