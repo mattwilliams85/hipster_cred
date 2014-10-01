@@ -9,8 +9,9 @@
       <h2 class="secondary-title"> THE LAST.FM </h2>
       <h1 class="main-title"> HIPSTER CREDULATOR </h1>
     </div>
-    <%= image_tag("hipster_logo.png", :alt => "rss feed", :class => "image") %>
-
+    <div id="logo">
+      <%= image_tag("hipster_logo.png", :alt => "rss feed", :class => "image") %>
+    </div>
     <div class="container main-form" style="margin:auto;width:80%">
       <%= form_for @user do |f| %>
       <div style="margin:auto;width:30%">

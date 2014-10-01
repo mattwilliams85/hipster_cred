@@ -12,6 +12,7 @@ gem 'autoprefixer-rails'
 gem 'lastfm-client', :git => 'http://github.com/pch/lastfm-client.git'
 gem 'echowrap'
 gem 'nokogiri'
+gem 'pandora'
 
 group :development do
   gem 'better_errors'
