@@ -4,7 +4,7 @@
       <span class="title"> Hipster Cred Rating</span>
       <br>
       <span class="score"> <%= @score["total"] %></span>
-      <p> out of 10 </p>
+      <p id='out-of-ten'> out of 10 </p>
       <div class="row">
         <div class="wrap">
           <span class="float-left"> Obscurity </span>
@@ -23,9 +23,9 @@
           <div id="rating"><%= @score["rating"] %></div>
         </div>
       </div>
-      <h2 class="congrats"> Congratulations</h2>
-      <h2 class="congrats"><strong>"<%= @user.username %>"</strong></h2>
-      <h2 class="congrats">you are <%= @message %>.</h2>
+      <h3 class="congrats"> Congratulations</h3>
+      <h3 class="congrats"><strong>"<%= @user.username %>"</strong></h3>
+      <h3 class="congrats">you are <%= @message %>.</h3>
       <h3><%= link_to "TRY AGAIN", users_path%></h3>
     </div>
 

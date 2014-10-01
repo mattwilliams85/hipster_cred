@@ -27,9 +27,19 @@
   font-weight:bold;
 }
 
+#clipped-title {
+  background: url(/assets/dark_wall.png) repeat center;
+  background-size: 100px;
+  color: #fff;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
 .main-title {
+
   font-family: 'hipster';
   font-size:4em;
+  fill: url(#wood);
 }
 
 .secondary-title {
@@ -52,9 +62,13 @@
 }
 
 .show-box {
-  border:5px double gray;
+  max-width:800px;
+  border:6px double #615D5D;
   height:100%;
   padding:30px 0 0 0;
+  margin-bottom:30px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .main-box {
@@ -62,12 +76,17 @@
   border-radius:50%;
   height:700px !important;
   width:700px !important;
+  margin:auto;
 }
 
 .wrap {
  margin:auto;
- width:400px;
+ width:350px;
  height:20px;
+}
+
+#out-of-ten {
+  margin-top:-20px;
 }
 
 #obscurity {
@@ -85,7 +104,7 @@
   width:1px;
   background-color:green;
   color:white;
-  margin-left:5px;
+  margin-left:5.25px;
 }
 
 #rating {
@@ -94,7 +113,7 @@
   width:1px;
   background-color:darkgreen;
   color:white;
-  margin-left:30.3px;
+  margin-left:29px;
 }
 
 .float-left {
@@ -104,7 +123,7 @@
 body {
   margin-top:30px;
   text-align:center;
-  /*background-image: url('http://fearlessrockprojects.org/wp-content/uploads/2013/03/background-1600-hipster-2.jpg')*/
+  background-image: image-url("paper.png")
 }
 
 html,body {
@@ -117,6 +136,10 @@ li {
 
 p {
   line-height: 80%;
+}
+
+.transparent {
+  background-color:rgba(255,255,255,0.9);
 }
 
 .main-form {
