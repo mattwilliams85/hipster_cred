@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    d
     @topalbums = LastFM::User.get_top_albums(:user => params[:user][:username])
     if @topalbums
     @user = User.new(:username => params[:user][:username])

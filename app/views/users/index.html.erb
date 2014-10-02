@@ -12,17 +12,23 @@
     <div id="logo">
       <%= image_tag("hipster_logo.png", :alt => "rss feed", :class => "image") %>
     </div>
-    <div class="container main-form" style="margin:auto;width:80%">
-      <%= form_for @user do |f| %>
-      <div style="margin:auto;width:30%">
-        <%= f.text_field :username, :class => "form-control transparent", :placeholder => "LastFM username" %>
-        <br>
-        <%= f.submit "Let me have it", :class => "btn btn-primary" %>
-      </div>
-      <% end %>
+    <div class='align-center'>
+      <form action="/users" method="post" role='form' class='form-horizontal'>
+        <div class='form-group'>
+          <input id="username" name="user[username]" type="text" class='form-control' placeholder='username'>
+
+            <select name='user[account_type]' class="form-control dropdown">
+              <option value='lastfm'>LastFM</option>
+              <option value='pandora'>Pandora</option>
+            </select>
+            </div> <!-- form-group -->
+
+
+        <button class='btn btn-primary'>Let me have it</button>
+      </form>
     </div>
-  </div>
-</div>
+  </div> <!-- main-box -->
+</div> <!-- container -->
 
 
 <script>

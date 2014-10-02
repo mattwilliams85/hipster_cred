@@ -90,7 +90,7 @@
 }
 
 #logo {
-  padding:10px 0 10px 0;
+  padding:20px 0 20px 0;
 }
 
 #obscurity {
@@ -142,6 +142,31 @@ p {
   line-height: 80%;
 }
 
+input {
+  position:relative;
+  width:200px !important;
+  float:left;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  z-index: 2;
+}
+
+select {
+  width:100px !important;
+  margin-left:-2px;
+  float:left;
+  z-index:1;
+}
+
+.align-center {
+  padding-top:30px;
+  width:300px;
+  margin:auto;
+  padding-left:15px;
+}
+
+
+
 .transparent {
   background-color:rgba(255,255,255,0.9);
 }
@@ -156,7 +181,6 @@ p {
 }
 
 .rotate {
-    padding:20px 0 20px 0;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
