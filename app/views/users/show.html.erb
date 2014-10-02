@@ -19,18 +19,23 @@
       </div>
       <div class="row">
         <div class="wrap">
-          <span class="float-left"> Rating </span>
+          <span class="float-left"> Elitism </span>
           <div id="rating"><%= @score["rating"] %></div>
         </div>
       </div>
-      <h3 class="congrats"> Congratulations</h3>
-      <h3 class="congrats"><strong>"<%= @user.username %>"</strong></h3>
-      <h3 class="congrats">you are <%= @message %>.</h3>
-      <h3><%= link_to "TRY AGAIN", users_path%></h3>
+      <div id='congrats-box'>
+        <h3 class="congrats"> Congratulations</h3>
+        <h3 class="congrats"><strong>"<%= @user.username %>"</strong></h3>
+        <h3 class="congrats">you are <%= @message %>.</h3>
+        <h3><%= link_to "TRY AGAIN", users_path%></h3>
+      </div>
     </div>
 
     <br>
-
+    <br>
+    <h4><i> Your Album Critique </i></h3>
+    <div id="divider"></div>
+    <br>
     <div class="results-box">
       <ul>
         <% @albums.each_with_index do |album, i | %>

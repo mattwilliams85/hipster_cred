@@ -3,13 +3,13 @@ class User < ActiveRecord::Base
 
   def find_top_ten
     @topalbums = []
-    albums = LastFM::User.get_top_albums(:user => self.username)
-    albums["topalbums"]["album"].each_with_index do |album, i|
+    albums = LastFM::User.get_top_albums(:user => self.username)["topalbums"]["album"]
+    albums.each_with_index do |album, i|
       album = {"name" => album["name"], "artist" => album["artist"]["name"]}
       if find_stats(album)
         @topalbums << album
       end
-      break if @topalbums.length == 5 || i == 49
+      break if @topalbums.length == 5 || i == albums.length + 1
     end
     @topalbums
   end

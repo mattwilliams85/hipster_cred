@@ -57,6 +57,14 @@
   border-bottom:2px solid black;
 }
 
+.congrats {
+  line-height:50%;
+}
+
+#congrats-box {
+  padding-top:10px;
+}
+
 .results-box ul {
   padding:1px !important;
 }
@@ -117,7 +125,18 @@
   width:1px;
   background-color:darkgreen;
   color:white;
-  margin-left:29px;
+  margin-left:28.1px;
+}
+
+#divider {
+  height:1px;
+  width:75%;
+  margin:auto;
+  background: #333;
+  background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 }
 
 .float-left {
