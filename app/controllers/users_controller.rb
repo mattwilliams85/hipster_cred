@@ -5,33 +5,23 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-    if params[:user][:username] == ""
-      flash[:alert] = "Username field cannot be empty"
-      render "index"
-    elsif @user.valid_account? && @user.save
-      if Pandora::User.new(@user.username).recent_activity.first == nil
-        flash[:alert] = "User has no bookmarked songs"
-        render "index"
-      else
-      redirect_to user_path(@user)
-      end
+    @topalbums = LastFM::User.get_top_albums(:user => params[:user][:username])
+    if @topalbums
+    @user = User.new(:username => params[:user][:username])
+      if @user.save
+        redirect_to user_path(@user)
     else
-      flash[:alert] = "No account found with that username"
+      flash[:alert] = "username field cannot be empty"
       render "index"
+      end
     end
   end
 
   def show
     @user = User.find(params[:id])
     @albums = @user.find_top_ten
-    if @albums == 'failed' || @albums == nil
-      flash[:alert] = "Unfortunately you dont have enough data"
-      redirect_to users_path
-    else
     @score = @user.find_score(@albums)
     @message = @user.find_message(@score)
-    end
   end
 
 end
