@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140924175234) do
 
   create_table "users", force: true do |t|
     t.string "username"
-    t.string "topalbums"
+    t.string "account_type"
   end
 
 end

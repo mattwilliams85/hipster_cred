@@ -1,8 +1,50 @@
 class User < ActiveRecord::Base
   validates :username, :presence => :true
 
+  def valid_account?
+    if self.account_type == 'lastfm' && LastFM::User.get_info(:user => self.username)['message'] != 'No user with that name was found'
+      return true
+    elsif self.account_type == 'pandora' && Pandora::User.new(self.username).stations.to_s != '#<OpenURI::HTTPError: 400 Invalid+username%3A+#{self.username}>'
+      return true
+    else
+      return false
+    end
+  end
+
   def find_top_ten
     @topalbums = []
+    if self.account_type == 'pandora'
+      pandora_search
+    else
+      lastfm_search
+    end
+  end
+
+  def pandora_search
+    user = Pandora::User.new(self.username)
+    user.recent_activity.each_with_index do |album, i|
+      artist = clean_string(album[:artist])
+      album = {"name" => album[:album], "artist" => artist }
+      if album["name"] != ""
+        if find_stats(album)
+          @topalbums << album
+        end
+      end
+      break if @topalbums.length == 5 || i == 49
+    end
+    @topalbums
+    if @topalbums.first == nil
+      return 'failed'
+    end
+  end
+
+  def clean_string(name)
+    print name #for dev
+    name.slice! "(single)"
+    name
+  end
+
+  def lastfm_search
     albums = LastFM::User.get_top_albums(:user => self.username)
     albums["topalbums"]["album"].each_with_index do |album, i|
       album = {"name" => album["name"], "artist" => album["artist"]["name"]}
