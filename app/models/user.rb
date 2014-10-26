@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
 
   def find_top_ten
     @topalbums = []
-    albums = LastFM::User.get_top_albums(:user => self.username)["topalbums"]["album"]
+    albums = LastFM::User.get_top_albums(:user => self.username)['topalbums']['album']
     albums.each_with_index do |album, i|
-      album = {"name" => album["name"], "artist" => album["artist"]["name"]}
+      album = {'name' => album['name'], 'artist' => album['artist']['name']}
       if find_stats(album)
         @topalbums << album
       end
@@ -16,13 +16,13 @@ class User < ActiveRecord::Base
 
 
   def find_stats(album)
-    @album = LastFM::Album.get_info(:artist => album["artist"], :album => album["name"])["album"]
+    @album = LastFM::Album.get_info(:artist => album['artist'], :album => album['name'])['album']
     if rating(@album)
-      album["rating"] = rating(@album)
+      album['rating'] = rating(@album)
       if unpopularity(@album)
-        album["unpopularity"] = unpopularity(@album)
-        album["freshness"] = freshness(@album)
-        album["img_url"] = @album["image"][2]["#text"]
+        album['unpopularity'] = unpopularity(@album)
+        album['freshness'] = freshness(@album)
+        album['img_url'] = @album['image'][2]['#text']
       else
       false
       end
@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def rating(album)
-    review = ReviewSearcher.new(album["name"]).search.rating
+    review = ReviewSearcher.new(album['name']).search.rating
     if review
       review.strip.to_f
     else
@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
   end
 
   def validate_rating(album)
-    if album["rating"] == false
+    if album['rating'] == false
       false
     else
       true
@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   end
 
   def validate_freshness(album)
-    if album["freshness"] == false
+    if album['freshness'] == false
       false
     else
       true
@@ -91,34 +91,34 @@ class User < ActiveRecord::Base
     rating = 0
     count = albums.length
     albums.each do |album|
-      total += (album["unpopularity"] + album["freshness"] + album["rating"])/3
-      obscurity += album["unpopularity"]
-      freshness += album["freshness"]
-      rating += album["rating"]
+      total += (album['unpopularity'] + album['freshness'] + album['rating'])/3
+      obscurity += album['unpopularity']
+      freshness += album['freshness']
+      rating += album['rating']
     end
-    {"total" => (total/count).round(1), "obscurity" => (obscurity/count).round(1), "freshness" => (freshness/count).round(1), "rating" => (rating/count).round(1) }
+    {'total' => (total/count).round(1), 'obscurity' => (obscurity/count).round(1), 'freshness' => (freshness/count).round(1), 'rating' => (rating/count).round(1) }
   end
 
   def find_message(score)
-    case score["total"].to_f
+    case score['total'].to_f
       when 0..2
-        return "a mainstream whore"
+        return 'a mainstream whore'
       when 2.01..3
-        return  "a ryan seacrestian"
+        return  'a ryan seacrestian'
       when 3.01..4
-          return "a top 40 junkie"
+          return 'a top 40 junkie'
       when 4.01..5
-        return "officially sheeple"
+        return 'officially sheeple'
       when 5.01..6
-        return "pretty average"
+        return 'pretty average'
       when 6.01..7
-        return "prime hipster"
+        return 'prime hipster'
       when 7.01..8
-        return "hipster cultist"
+        return 'hipster cultist'
       when 8.01..10
-        return "pure filth hipster scum"
+        return 'pure filth hipster scum'
       else
-        return "BROKEN"
+        return 'BROKEN'
       end
     end
 end

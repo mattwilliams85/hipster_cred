@@ -5,6 +5,4 @@ class DatasetsController < ApplicationController
     @test = LastFM::User.get_top_albums(:user => "syncr")
   end
 
-
-
 end
