@@ -1,3 +1,10 @@
+GIT
+  remote: http://github.com/pch/lastfm-client.git
+  revision: 39c4792783f397fb8688e27909ac509a715b8312
+  specs:
+    lastfm-client (0.0.3)
+      json (>= 1.4.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,8 +70,6 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
-    lastfm-client (0.0.3)
-      json (>= 1.4.6)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     mime-types (2.3)
@@ -154,7 +159,7 @@ DEPENDENCIES
   coffee-rails
   echowrap
   jquery-rails
-  lastfm-client
+  lastfm-client!
   nokogiri
   pandora
   pg
