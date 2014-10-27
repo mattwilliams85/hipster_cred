@@ -13,6 +13,7 @@ gem 'lastfm-client', :git => 'git://github.com/pch/lastfm-client.git'
 gem 'echowrap'
 gem 'nokogiri'
 gem 'pandora'
+gem 'sinatra'
 
 group :development do
   gem 'better_errors'
